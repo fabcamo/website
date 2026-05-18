@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fabian Campos Montero - Curriculum Vitae. Geotechnical engineer specialising in AI and machine learning.">
+    <title>Fabian Campos Montero | CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Tokens identical to / (card page) */
+        :root {
+            --bg:             #e8e8e8;
+            --surface:        #ffffff;
+            --border:         #d4d4d4;
+            --border-hover:   #404040;
+            --text-primary:   #171717;
+            --text-secondary: #525252;
+            --text-muted:     #a3a3a3;
+            --accent:         #1a56db;
+            --dark-bg:        #0f0f0f;
+            --dark-surface:   #1a1a1a;
+            --dark-border:    #2a2a2a;
+            --dark-text:      #f0f0f0;
+            --dark-muted:     #505050;
+            --dark-comment:   #3a3a3a;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --radius: 6px;
+            --nav-h: 52px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* === NAV === */
+        .nav {
+            position: fixed;
+            top: 0; width: 100%;
+            height: var(--nav-h);
+            background: var(--dark-bg);
+            border-bottom: 1px solid var(--dark-border);
+            z-index: 100;
+        }
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none;
+        }
+        .nav-badge {
+            font-family: var(--mono);
+            font-size: 0.6875rem; font-weight: 500;
+            color: var(--dark-muted);
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: 4px;
+            padding: 0.2em 0.55em;
+            letter-spacing: 0.08em;
+        }
+        .nav-path {
+            font-family: var(--mono);
+            font-size: 0.6875rem;
+            color: var(--dark-comment);
+        }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-link {
+            font-size: 0.8125rem; font-weight: 500;
+            color: var(--dark-muted);
+            text-decoration: none;
+            transition: color 0.12s ease;
+        }
+        .nav-link:hover { color: var(--dark-text); }
+        .nav-toggle {
+            display: none; background: none; border: none;
+            cursor: pointer; padding: 0.25rem;
+            color: var(--dark-muted);
+        }
+        .nav-toggle span {
+            display: block; width: 20px; height: 1.5px;
+            background: currentColor; margin: 4px 0;
+        }
+
+        /* === HERO === */
+        .hero {
+            padding-top: var(--nav-h);
+            background: var(--dark-bg);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        .hero-inner {
+            max-width: 900px; margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        .hero-header {
+            display: flex; align-items: center; gap: 0.625rem;
+            margin-bottom: 1.25rem;
+        }
+        .hero-badge {
+            font-family: var(--mono);
+            font-size: 0.6875rem; font-weight: 500;
+            color: var(--dark-muted);
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: 4px;
+            padding: 0.2em 0.55em;
+            letter-spacing: 0.08em;
+        }
+        .hero-path { font-family: var(--mono); font-size: 0.6875rem; color: var(--dark-comment); }
+        .hero-name {
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 600; color: var(--dark-text);
+            letter-spacing: -0.02em; line-height: 1.2;
+            margin-bottom: 0.625rem;
+        }
+        .hero-tagline {
+            font-family: var(--mono);
+            font-size: 0.75rem; color: var(--dark-muted);
+            line-height: 1.7; margin-bottom: 1.5rem;
+        }
+        .hero-tagline .c { color: var(--dark-comment); }
+        .hero-desc {
+            font-size: 0.9375rem; color: #8a8a8a;
+            max-width: 600px; line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .btn {
+            font-family: var(--sans);
+            font-size: 0.8125rem; font-weight: 500;
+            padding: 0.5rem 1.125rem;
+            border-radius: var(--radius);
+            text-decoration: none; border: 1px solid;
+            transition: background 0.12s, color 0.12s, border-color 0.12s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--dark-text); color: var(--dark-bg);
+            border-color: var(--dark-text);
+        }
+        .btn-primary:hover { background: #d0d0d0; border-color: #d0d0d0; }
+        .btn-secondary {
+            background: transparent; color: var(--dark-muted);
+            border-color: var(--dark-border);
+        }
+        .btn-secondary:hover { color: var(--dark-text); border-color: var(--dark-muted); }
+
+        /* === SECTIONS === */
+        .section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.625rem; font-weight: 500;
+            letter-spacing: 0.1em; color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* === EXPERIENCE === */
+        .exp-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .exp-item {
+            display: grid; grid-template-columns: 190px 1fr; gap: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.25rem;
+            transition: border-color 0.12s;
+        }
+        .exp-item:hover { border-color: var(--border-hover); }
+        .exp-meta {
+            display: flex; flex-direction: column; gap: 0.3rem;
+            border-right: 1px solid var(--border);
+            padding-right: 1.5rem;
+        }
+        .exp-date {
+            font-family: var(--mono); font-size: 0.6875rem;
+            color: var(--text-muted); line-height: 1.4;
+        }
+        .exp-company { font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); }
+        .exp-title {
+            font-size: 0.9375rem; font-weight: 600;
+            color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3;
+        }
+        .exp-desc { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.7; }
+
+        /* === EDUCATION === */
+        .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        .edu-tile {
+            background: var(--surface);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.25rem;
+            display: flex; flex-direction: column; gap: 0.3rem;
+            transition: border-color 0.12s;
+        }
+        .edu-tile:hover { border-color: var(--border-hover); }
+        .edu-year { font-family: var(--mono); font-size: 0.6875rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+        .edu-degree { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); line-height: 1.35; }
+        .edu-field { font-size: 0.8125rem; color: var(--accent); font-weight: 500; }
+        .edu-honor { font-family: var(--mono); font-size: 0.625rem; color: var(--text-muted); }
+        .edu-school { font-size: 0.75rem; color: var(--text-secondary); margin-top: auto; padding-top: 0.5rem; }
+
+        /* === SKILLS === */
+        .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        .skill-tile {
+            background: var(--surface);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 1.25rem;
+        }
+        .skill-tile-label {
+            font-family: var(--mono); font-size: 0.625rem;
+            color: var(--text-muted); letter-spacing: 0.06em;
+            margin-bottom: 0.875rem;
+        }
+        .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .skill-list li {
+            font-size: 0.8125rem; color: var(--text-secondary);
+            display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.4;
+        }
+        .skill-list li::before {
+            content: '\25C6';
+            font-size: 0.4rem; color: var(--text-muted);
+            margin-top: 0.4em; flex-shrink: 0;
+        }
+
+        /* === CONTACT === */
+        .section-contact {
+            background: var(--dark-bg);
+            border-top: 1px solid var(--dark-border);
+            padding: 3.5rem 0;
+        }
+        .contact-label {
+            font-family: var(--mono); font-size: 0.625rem; font-weight: 500;
+            letter-spacing: 0.1em; color: var(--dark-comment);
+            margin-bottom: 1.5rem;
+        }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .contact-heading { font-size: 1rem; font-weight: 600; color: var(--dark-text); margin-bottom: 0.75rem; }
+        .contact-note { font-size: 0.875rem; color: var(--dark-muted); line-height: 1.7; margin-bottom: 1.5rem; }
+        .contact-details { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+        .contact-details li {
+            font-family: var(--mono); font-size: 0.75rem; color: var(--dark-muted);
+            display: flex; align-items: center; gap: 0.625rem;
+        }
+        .contact-details li::before {
+            content: '\25C6'; font-size: 0.4rem; color: var(--dark-comment); flex-shrink: 0;
+        }
+        .contact-details a { color: var(--dark-muted); text-decoration: none; }
+        .contact-details a:hover { color: var(--dark-text); }
+        .contact-cta { display: flex; flex-direction: column; justify-content: center; gap: 1rem; }
+        .contact-cta-label { font-family: var(--mono); font-size: 0.625rem; color: var(--dark-comment); letter-spacing: 0.08em; }
+
+        /* === FOOTER === */
+        .footer {
+            background: var(--dark-bg);
+            border-top: 1px solid var(--dark-border);
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            font-family: var(--mono); font-size: 0.6875rem;
+            color: var(--dark-comment);
+        }
+        .footer a { color: var(--dark-muted); text-decoration: none; }
+        .footer a:hover { color: var(--dark-text); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: var(--nav-h); left: 0; right: 0;
+                background: var(--dark-bg);
+                border-bottom: 1px solid var(--dark-border);
+                padding: 1rem 1.5rem; gap: 1rem;
+            }
+            .nav-toggle { display: block; }
+            .exp-item { grid-template-columns: 1fr; }
+            .exp-meta { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 0.75rem; }
+            .edu-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 900px) and (min-width: 701px) {
+            .edu-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-brand" aria-label="Home">
+            <span class="nav-badge">FCM</span>
+            <span class="nav-path">~ fabcamo.com/cv</span>
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about"      class="nav-link">about</a></li>
+            <li><a href="#experience" class="nav-link">experience</a></li>
+            <li><a href="#education"  class="nav-link">education</a></li>
+            <li><a href="#skills"     class="nav-link">skills</a></li>
+            <li><a href="#contact"    class="nav-link">contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="about" class="hero">
+    <div class="hero-inner">
+        <div class="hero-header">
+            <span class="hero-badge">FCM</span>
+            <span class="hero-path">~ fabcamo.com/cv</span>
+        </div>
+        <h1 class="hero-name">Fab&iacute;an A. Campos Montero</h1>
+        <p class="hero-tagline">
+            <span class="c">// </span>geotechnical engineer &middot; AI &amp; machine learning specialist<br>
+            <span class="c">// </span>rail infrastructure &middot; monitoring &middot; data-driven geomechanics
+        </p>
+        <p class="hero-desc">
+            Proven record applying AI techniques to complex geotechnical problems.
+            Focused on enhancing infrastructure resilience and performance through data-driven insights.
+        </p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="/CV_FABCAMO.pdf" class="btn btn-secondary" download>Download CV</a>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+    <div class="wrap">
+        <p class="section-label">// experience</p>
+        <div class="exp-list">
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">Dec 2022 &ndash; Aug 2023</span>
+                    <span class="exp-company">Deltares</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Graduate Research Intern</h3>
+                    <p class="exp-desc">Developed SchemaGAN, an AI model that improved geotechnical data interpretation. The model, part of my Master&apos;s thesis, was validated through expert surveys and demonstrated superior performance in predicting soil behaviour patterns.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">Aug 2022 &ndash; Nov 2022</span>
+                    <span class="exp-company">Royal HaskoningDHV</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Geotechnical Engineer Intern</h3>
+                    <p class="exp-desc">Examined anchor length influence and compared load-distribution models in PLAXIS. Research supported the implementation of double grouted anchors for optimised retaining wall performance, improving safety margins by 15%.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">2015 &ndash; 2021</span>
+                    <span class="exp-company">University of Costa Rica</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Geotechnical Engineer</h3>
+                    <p class="exp-desc">Directed comprehensive in-situ testing programmes including SPT, CPT, boreholes, and geophysical surveys across 20+ project sites. Managed data acquisition, quality control, and interpretation for infrastructure projects.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">2019 &ndash; 2020</span>
+                    <span class="exp-company">Inter-American Development Bank</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Geotechnical Risk Consultant</h3>
+                    <p class="exp-desc">Assessed geotechnical suitability for the Quito Metro project and specialised landfill stability. Collaborated with government departments, providing recommendations that reduced projected risks by identifying critical failure mechanisms.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">2017 &ndash; 2019</span>
+                    <span class="exp-company">University of Costa Rica</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Professor, Bachelor of Geology</h3>
+                    <p class="exp-desc">Delivered geotechnical engineering courses and mentored 8+ bachelor&apos;s thesis projects focused on applied geomechanics and site investigation methods.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-meta">
+                    <span class="exp-date">2018 &ndash; 2019</span>
+                    <span class="exp-company">Geostru Software</span>
+                </div>
+                <div>
+                    <h3 class="exp-title">Product Development Consultant</h3>
+                    <p class="exp-desc">Provided technical feedback on new geotechnical analysis features and contributed to the trainee programme, improving user onboarding for 200+ engineers.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+    <div class="wrap">
+        <p class="section-label">// education</p>
+        <div class="edu-grid">
+
+            <div class="edu-tile">
+                <span class="edu-year">2023</span>
+                <h3 class="edu-degree">Master of Applied Earth Science</h3>
+                <p class="edu-field">Geo-Engineering</p>
+                <p class="edu-school">Delft University of Technology, Netherlands</p>
+            </div>
+
+            <div class="edu-tile">
+                <span class="edu-year">2020</span>
+                <h3 class="edu-degree">Diploma in Underground &amp; Overground Geomechanics</h3>
+                <p class="edu-field">Geomechanics</p>
+                <span class="edu-honor">// Cum Laude</span>
+                <p class="edu-school">International Geotechnical Center</p>
+            </div>
+
+            <div class="edu-tile">
+                <span class="edu-year">2015</span>
+                <h3 class="edu-degree">Bachelor of Science in Geology</h3>
+                <p class="edu-field">Geology</p>
+                <span class="edu-honor">// With Honors</span>
+                <p class="edu-school">University of Costa Rica</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+    <div class="wrap">
+        <p class="section-label">// skills</p>
+        <div class="skills-grid">
+
+            <div class="skill-tile">
+                <p class="skill-tile-label">// professional</p>
+                <ul class="skill-list">
+                    <li>Detail-oriented &amp; quality-focused</li>
+                    <li>Data management &amp; statistical analysis</li>
+                    <li>Complex problem-solving</li>
+                    <li>Team leadership &amp; mentorship</li>
+                    <li>Knowledge transfer &amp; training</li>
+                </ul>
+            </div>
+
+            <div class="skill-tile">
+                <p class="skill-tile-label">// technical</p>
+                <ul class="skill-list">
+                    <li>Python programming &amp; ML frameworks</li>
+                    <li>ArcGIS &amp; QGIS spatial analysis</li>
+                    <li>Seismic &amp; electrical geophysics</li>
+                    <li>Stability analysis &amp; numerical modelling</li>
+                    <li>Rocscience Suite &amp; PLAXIS</li>
+                    <li>GPS surveying &amp; engineering drawing</li>
+                </ul>
+            </div>
+
+            <div class="skill-tile">
+                <p class="skill-tile-label">// languages</p>
+                <ul class="skill-list">
+                    <li>Spanish &mdash; native</li>
+                    <li>English &mdash; advanced (TOEFL iBT 115)</li>
+                    <li>Dutch &mdash; beginner</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-contact">
+    <div class="wrap">
+        <p class="contact-label">// contact</p>
+        <div class="contact-grid">
+            <div>
+                <h2 class="contact-heading">Get In Touch</h2>
+                <p class="contact-note">Available for opportunities in geotechnical engineering, AI applications in geomechanics, and infrastructure resilience.</p>
+                <ul class="contact-details">
+                    <li>+31 6 82183845</li>
+                    <li><a href="mailto:fabian.campos@deltares.nl">fabian.campos@deltares.nl</a></li>
+                    <li>Netherlands &mdash; open to relocation</li>
+                </ul>
+            </div>
+            <div class="contact-cta">
+                <p class="contact-cta-label">// download</p>
+                <a href="/CV_FABCAMO.pdf" class="btn btn-secondary" style="width:fit-content" download>Download CV (PDF)</a>
+                <p class="contact-cta-label" style="margin-top:1rem">// navigate</p>
+                <a href="/" class="btn btn-secondary" style="width:fit-content">&#8592; Back to home</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <a href="/">~ fabcamo.com</a> &nbsp;&middot;&nbsp; &copy; 2026 Fabian A. Campos Montero
+</footer>
+
+<script>
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('.nav-link').forEach(l =>
+        l.addEventListener('click', () => {
+            links.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        })
+    );
+</script>
+</body>
+</html>
