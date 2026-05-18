@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fabian Campos Montero – Geotechnical engineering · AI · rail infrastructure · monitoring">
+    <title>Fabian Campos Montero</title>
+    <!-- Same font as the main site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Card page – self-contained styles.
+           Colour tokens intentionally match the main site (styles.css). */
+        :root {
+            --primary: #1a56db;
+            --secondary: #7c3aed;
+            --text-dark: #1f2937;
+            --text-mid: #4b5563;
+            --text-muted: #9ca3af;
+            --bg: #f3f4f6;
+            --white: #ffffff;
+            --radius-card: 14px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.13);
+            --trans: 0.15s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem 3rem;
+        }
+
+        /* ── Page container ─────────────────────────────── */
+        .card-page {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* ── Profile header ─────────────────────────────── */
+        .profile {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .avatar {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin: 0 auto 1rem;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-subtitle {
+            font-size: 0.875rem;
+            font-weight: 400;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ── Active link cards ──────────────────────────── */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 0.875rem 1.125rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--trans), box-shadow var(--trans);
+        }
+
+        .link-item:hover,
+        .link-item:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .link-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .link-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-label {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .link-desc {
+            font-size: 0.8125rem;
+            color: var(--text-mid);
+            display: block;
+            margin-top: 0.125rem;
+        }
+
+        .link-arrow {
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        /* Icon colour pairs */
+        .ic-blue {
+            background: #eff6ff;
+            color: #1a56db;
+        }
+
+        .ic-indigo {
+            background: #eef2ff;
+            color: #4f46e5;
+        }
+
+        .ic-sky {
+            background: #f0f9ff;
+            color: #0284c7;
+        }
+
+        .ic-green {
+            background: #f0fdf4;
+            color: #16a34a;
+        }
+
+        .ic-rose {
+            background: #fff1f2;
+            color: #e11d48;
+        }
+
+        /* ── Coming-soon section ─────────────────────────── */
+        .coming-soon-heading {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.25rem 0.25rem 0.5rem;
+        }
+
+        .coming-soon-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Non-interactive, muted version of the link card */
+        .link-item-muted {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            background: var(--white);
+            border-radius: var(--radius-card);
+            padding: 0.875rem 1.125rem;
+            color: var(--text-muted);
+            box-shadow: var(--shadow-sm);
+            opacity: 0.6;
+            cursor: default;
+            user-select: none;
+        }
+
+        .link-item-muted .link-icon {
+            background: #f3f4f6;
+            color: var(--text-muted);
+        }
+
+        .link-item-muted .link-label {
+            color: var(--text-mid);
+        }
+
+        .badge-soon {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            background: #f3f4f6;
+            color: var(--text-muted);
+            border-radius: 999px;
+            padding: 0.2em 0.65em;
+            flex-shrink: 0;
+            letter-spacing: 0.03em;
+        }
+
+        /* ── Footer ─────────────────────────────────────── */
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            padding-top: 0.25rem;
+        }
+
+        footer a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card-page">
+
+        <!-- Profile header -->
+        <header class="profile">
+            <div class="avatar" aria-hidden="true">FCM</div>
+            <h1 class="profile-name">Fabian Campos Montero</h1>
+            <p class="profile-subtitle">
+                Geotechnical engineering &middot; AI &middot; rail infrastructure &middot; monitoring
+            </p>
+        </header>
+
+        <!-- Active professional links -->
+        <nav class="links" aria-label="Professional links">
+
+            <!-- Website / CV (homepage is currently the CV) -->
+            <a href="/" class="link-item">
+                <span class="link-icon ic-blue" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586
+                             a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">Website / CV</span>
+                    <span class="link-desc">fabcamo.com</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- Download CV – PDF confirmed at repository root -->
+            <a href="/CV_FABCAMO.pdf" class="link-item" download>
+                <span class="link-icon ic-indigo" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">Download CV</span>
+                    <span class="link-desc">PDF · CV_FABCAMO.pdf</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- LinkedIn – TODO: replace PLACEHOLDER with your LinkedIn username -->
+            <a href="https://www.linkedin.com/in/PLACEHOLDER" class="link-item" target="_blank"
+                rel="noopener noreferrer">
+                <span class="link-icon ic-sky" aria-hidden="true">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037
+                             -1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046
+                             c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z
+                             M5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0
+                             112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z
+                             M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24
+                             h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">LinkedIn</span>
+                    <span class="link-desc">Professional profile</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- Google Scholar – TODO: replace PLACEHOLDER with your Scholar user ID -->
+            <a href="https://scholar.google.com/citations?user=PLACEHOLDER" class="link-item" target="_blank"
+                rel="noopener noreferrer">
+                <span class="link-icon ic-blue" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479
+                             A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998
+                             12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">Google Scholar</span>
+                    <span class="link-desc">Academic publications &amp; citations</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- ORCID – TODO: replace 0000-0000-0000-0000 with your real ORCID iD -->
+            <a href="https://orcid.org/0000-0000-0000-0000" class="link-item" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon ic-green" aria-hidden="true">
+                    <svg fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0z
+                             M7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947
+                             a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947z
+                             m-.722 3.038h1.444v10.041H6.647V7.416z
+                             m3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025
+                             0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416z
+                             m1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722
+                             0-2.016-1.284-3.722-3.884-3.722h-2.285z" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">ORCID</span>
+                    <span class="link-desc">Researcher identifier</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+            <!-- Contact email -->
+            <a href="mailto:fab.camo@gmail.com" class="link-item">
+                <span class="link-icon ic-rose" aria-hidden="true">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8
+                             M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </span>
+                <span class="link-text">
+                    <span class="link-label">Contact</span>
+                    <span class="link-desc">fab.camo@gmail.com</span>
+                </span>
+                <svg class="link-arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+
+        </nav>
+
+        <!-- Links without URLs yet – shown muted, not clickable -->
+        <section aria-label="Coming soon">
+            <p class="coming-soon-heading">Coming soon</p>
+            <div class="coming-soon-list">
+
+                <div class="link-item-muted">
+                    <span class="link-icon" aria-hidden="true">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13
+                                 C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253
+                                 m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13
+                                 C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </span>
+                    <span class="link-text">
+                        <span class="link-label">Publications</span>
+                        <span class="link-desc">Research papers &amp; reports</span>
+                    </span>
+                    <span class="badge-soon">soon</span>
+                </div>
+
+                <div class="link-item-muted">
+                    <span class="link-icon" aria-hidden="true">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5
+                                 M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </span>
+                    <span class="link-text">
+                        <span class="link-label">Company Profile</span>
+                        <span class="link-desc">Portfolio &amp; project work</span>
+                    </span>
+                    <span class="badge-soon">soon</span>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p><a href="/">fabcamo.com</a></p>
+        </footer>
+
+    </main>
+</body>
+
+</html>
