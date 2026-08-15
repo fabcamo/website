@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Fabian A. Campos Montero - Geotechnical Engineer &amp; Researcher, Infrastructure, AI &amp; Geotechnical Risk">
+        content="Geotechnical engineer and researcher working on infrastructure, soil mechanics, site investigation, monitoring, numerical modelling and AI applications in geotechnics.">
+    <meta property="og:title" content="Fabi&aacute;n A. Campos Montero | Geotechnical Engineer &amp; Researcher">
+    <meta property="og:description"
+        content="Geotechnical engineer and researcher working on infrastructure, soil mechanics, site investigation, monitoring, numerical modelling and AI applications in geotechnics.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fabcamo.com/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <title>Fabian Campos Montero</title>
+    <title>Fabi&aacute;n A. Campos Montero | Geotechnical Engineer &amp; Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -135,6 +140,12 @@
             color: var(--dark-comment);
         }
 
+        .profile-intro {
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: #b0b0b0;
+        }
+
         /* Active link tile */
         .tile-link {
             text-decoration: none;
@@ -204,23 +215,23 @@
             line-height: 1.4;
         }
 
-        /* Muted / coming-soon tiles */
-        .tile-muted {
-            opacity: 0.42;
-            cursor: default;
-            user-select: none;
+        /* Focus areas - plain text blocks, no card/service styling */
+        .tile-area-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
-        .tile-muted .tile-label {
-            color: var(--text-secondary);
-        }
-
-        .tile-soon {
+        .tile-area-desc {
             font-family: var(--mono);
-            font-size: 0.625rem;
-            color: var(--text-muted);
-            margin-top: auto;
-            padding-top: 0.5rem;
+            font-size: 0.6875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
         }
 
         /* Section separator */
@@ -271,21 +282,27 @@
                     <span class="profile-badge">FCM</span>
                     <span class="profile-path">~ fabcamo.com</span>
                 </div>
-                <h1 class="profile-name">Fabian Campos Montero</h1>
+                <h1 class="profile-name">Fabi&aacute;n Campos Montero</h1>
                 <p class="profile-tagline">
                     <span class="c">// </span>geotechnical engineer &amp; researcher<br>
-                    <span class="c">// </span>infrastructure &middot; AI &middot; geotechnical risk
+                    <span class="c">// </span>infrastructure &middot; soil mechanics &middot; AI
+                </p>
+                <p class="profile-intro">
+                    Fabi&aacute;n is a geotechnical engineer and researcher at Deltares working across site
+                    investigation, soil mechanics, monitoring, numerical modelling, natural hazards and applied
+                    research. His work combines conventional geotechnical engineering with AI and data methods to
+                    support infrastructure and ground engineering decisions.
                 </p>
             </div>
 
-            <!-- Website / CV -->
+            <!-- Digital CV -->
             <a href="/cv" class="tile tile-link">
                 <div class="tile-top">
                     <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Website / CV</span>
+                    <span class="tile-label">Digital CV</span>
                     <span class="tile-arrow">&#8594;</span>
                 </div>
-                <span class="tile-desc">fabcamo.com</span>
+                <span class="tile-desc">fabcamo.com/cv</span>
             </a>
 
             <!-- Download CV - PDF confirmed at repository root -->
@@ -298,6 +315,8 @@
                 <span class="tile-desc">cv-fabcamo.pdf</span>
             </a>
 
+            <hr class="section-sep">
+
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/fabcamo/" class="tile tile-link span-2" target="_blank"
                 rel="noopener noreferrer">
@@ -307,6 +326,17 @@
                     <span class="tile-arrow">&#8594;</span>
                 </div>
                 <span class="tile-desc">linkedin.com/in/fabcamo</span>
+            </a>
+
+            <!-- Google Scholar -->
+            <a href="https://scholar.google.com/citations?user=7Uh8VJ8AAAAJ&hl=nl&oi=ao"
+                class="tile tile-link span-2" target="_blank" rel="noopener noreferrer">
+                <div class="tile-top">
+                    <span class="tile-diamond">&#9670;</span>
+                    <span class="tile-label">Google Scholar</span>
+                    <span class="tile-arrow">&#8594;</span>
+                </div>
+                <span class="tile-desc">publications &amp; citations</span>
             </a>
 
             <!-- Deltares profile -->
@@ -320,28 +350,6 @@
                 <span class="tile-desc">deltares.nl &mdash; our people</span>
             </a>
 
-            <!-- Google Scholar - TODO: replace user=PLACEHOLDER with your real Scholar ID -->
-            <a href="https://scholar.google.com/citations?user=7Uh8VJ8AAAAJ&hl=nl&oi=ao" class="tile tile-link"
-                target="_blank" rel="noopener noreferrer">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Google Scholar</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">publications &amp; citations</span>
-            </a>
-
-            <!-- ORCID - TODO: replace 0000-0000-0000-0000 with your real ORCID iD -->
-            <a href="https://orcid.org/0000-0000-0000-0000" class="tile tile-link" target="_blank"
-                rel="noopener noreferrer">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">ORCID</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">researcher iD</span>
-            </a>
-
             <!-- Contact email -->
             <a href="mailto:fab.camo@gmail.com" class="tile tile-link span-2">
                 <div class="tile-top">
@@ -352,26 +360,26 @@
                 <span class="tile-desc">fab.camo@gmail.com</span>
             </a>
 
-            <!-- Coming soon - links without URLs yet, non-clickable -->
+            <!-- Focus areas -->
             <hr class="section-sep">
-            <p class="section-label">// coming_soon</p>
+            <p class="section-label">// focus areas</p>
 
-            <div class="tile tile-muted">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9671;</span>
-                    <span class="tile-label">Publications</span>
-                </div>
-                <span class="tile-desc">papers &amp; reports</span>
-                <span class="tile-soon">// not yet linked</span>
+            <div class="tile tile-area span-2">
+                <p class="tile-area-label">Geotechnical Engineering</p>
+                <p class="tile-area-desc">Site investigation, soil mechanics, foundation engineering, slope and
+                    embankment stability, and numerical modelling, including natural hazards and landslide risk.</p>
             </div>
 
-            <div class="tile tile-muted">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9671;</span>
-                    <span class="tile-label">Company Profile</span>
-                </div>
-                <span class="tile-desc">portfolio &amp; projects</span>
-                <span class="tile-soon">// not yet linked</span>
+            <div class="tile tile-area span-2">
+                <p class="tile-area-label">Geodata &amp; Monitoring</p>
+                <p class="tile-area-desc">CPT and ground data, field investigation, laboratory data, fibre optic
+                    sensing, instrumentation and infrastructure monitoring.</p>
+            </div>
+
+            <div class="tile tile-area span-2">
+                <p class="tile-area-label">AI &amp; Digital Methods</p>
+                <p class="tile-area-desc">Machine learning, subsurface schematisation, Python workflows, geotechnical
+                    software and data-driven engineering.</p>
             </div>
 
         </div>

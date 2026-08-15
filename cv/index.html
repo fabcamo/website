@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Fabian A. Campos Montero - Curriculum Vitae. Geotechnical Engineer &amp; Researcher, Infrastructure, AI &amp; Geotechnical Risk.">
+        content="Digital CV of Fabi&aacute;n A. Campos Montero, geotechnical engineer and researcher working on infrastructure, soil mechanics, site investigation, monitoring, numerical modelling and AI applications in geotechnics.">
+    <meta property="og:title" content="Fabi&aacute;n A. Campos Montero | Geotechnical Engineer &amp; Researcher">
+    <meta property="og:description"
+        content="Digital CV of Fabi&aacute;n A. Campos Montero, geotechnical engineer and researcher working on infrastructure, soil mechanics, site investigation, monitoring, numerical modelling and AI applications in geotechnics.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://fabcamo.com/cv/">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <title>Fabian A. Campos Montero | CV</title>
+    <title>Fabi&aacute;n A. Campos Montero | CV</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -303,8 +308,15 @@
 
         .exp-company {
             font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--text-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-location {
+            font-family: var(--mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .exp-title {
@@ -337,6 +349,11 @@
             color: var(--text-muted);
             margin-top: 0.45em;
             flex-shrink: 0;
+        }
+
+        .exp-bullets li strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         /* === EDUCATION === */
@@ -375,10 +392,11 @@
             line-height: 1.35;
         }
 
-        .edu-field {
-            font-size: 0.8125rem;
-            color: var(--accent);
-            font-weight: 500;
+        .edu-thesis {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.5;
         }
 
         .edu-honor {
@@ -392,6 +410,36 @@
             color: var(--text-secondary);
             margin-top: auto;
             padding-top: 0.5rem;
+        }
+
+        /* === DISTINCTIONS === */
+        .dist-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .dist-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.625rem;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .dist-list li::before {
+            content: '\25C6';
+            font-size: 0.4rem;
+            color: var(--text-muted);
+            margin-top: 0.45em;
+            flex-shrink: 0;
+        }
+
+        .dist-list strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         /* === PUBLICATIONS === */
@@ -585,6 +633,12 @@
             color: var(--dark-text);
         }
 
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 700px) {
             .nav-links {
@@ -648,6 +702,7 @@
                 <li><a href="#about" class="nav-link">about</a></li>
                 <li><a href="#experience" class="nav-link">experience</a></li>
                 <li><a href="#education" class="nav-link">education</a></li>
+                <li><a href="#distinctions" class="nav-link">distinctions</a></li>
                 <li><a href="#publications" class="nav-link">publications</a></li>
                 <li><a href="#skills" class="nav-link">skills</a></li>
                 <li><a href="#contact" class="nav-link">contact</a></li>
@@ -665,17 +720,19 @@
                 <span class="hero-badge">FCM</span>
                 <span class="hero-path">~ fabcamo.com/cv</span>
             </div>
-            <h1 class="hero-name">Fab&iacute;an A. Campos Montero</h1>
+            <h1 class="hero-name">Fabi&aacute;n A. Campos Montero</h1>
             <p class="hero-tagline">
-                <span class="c">// </span>geotechnical engineer &amp; researcher<br>
-                <span class="c">// </span>infrastructure &middot; AI &middot; geotechnical risk
+                <span class="c">// </span>Geotechnical Engineer &amp; Researcher | Infrastructure, Soil
+                Mechanics &amp; AI
             </p>
             <p class="hero-desc">
                 Geotechnical engineer and researcher at Deltares with over 10 years of experience across
                 geotechnical engineering, site investigation, monitoring, natural hazards and applied research.
-                Combines a strong geotechnical foundation with AI and data methods, from CPT based subsurface
-                schematisation and machine learning to field investigation, laboratory testing and fibre optic
-                monitoring.
+                His work combines a strong geotechnical foundation with AI and data methods, from CPT based
+                subsurface schematisation and machine learning to field investigation, laboratory testing and
+                fibre optic monitoring, alongside slope and embankment stability and probabilistic landslide
+                assessment. Across research and consultancy projects, he turns complex geotechnical data into
+                clearer engineering decisions.
             </p>
             <div class="hero-actions">
                 <a href="#contact" class="btn btn-primary">Get In Touch</a>
@@ -694,23 +751,27 @@
                     <div class="exp-meta">
                         <span class="exp-date">Dec 2022 &ndash; Present</span>
                         <span class="exp-company">Deltares</span>
+                        <span class="exp-location">Delft, The Netherlands</span>
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Researcher and Consultant</h3>
                         <ul class="exp-bullets">
-                            <li>Core contributor to RESET, a multi-year research programme with ProRail and TU
-                                Delft, combining CPT, borehole, laboratory and centrifuge evidence with PLAXIS
-                                2D/3D, limit equilibrium analysis and Python automation to improve embankment
-                                stability assessment.</li>
-                            <li>Integrated CPTs with geological data and stochastic methods to assess critical
-                                train speed along a 15&nbsp;km railway corridor.</li>
-                            <li>Built Python workflows to detect train passages and validate fibre optic
-                                monitoring against accelerometer measurements.</li>
-                            <li>Developed and published SchemaGAN, a generative AI method for subsurface
-                                schematisation from CPT data (Computers and Geotechnics, 2025), with related work
-                                on GeoSyn and Deep Reinforcement Learning for site investigation planning.</li>
-                            <li>Builds reproducible Python and Jupyter workflows, automates PLAXIS through its
-                                API, and contributes to DGEOLIB Plus.</li>
+                            <li>Helped strengthen the technical basis for assessing Dutch railway embankments in
+                                ProRail's RESET programme, combining site investigation, laboratory and centrifuge
+                                data with PLAXIS 2D/3D, limit equilibrium analyses and Python automation to
+                                support decisions on running more, faster and heavier trains safely.</li>
+                            <li>Developed machine learning methods relating dark fibre measurements along
+                                railway tracks to free field accelerometer data, giving a scalable way to screen
+                                larger parts of the network for locations with higher vibration risk.</li>
+                            <li>Advanced automated subsurface interpretation with SchemaGAN, a generative AI
+                                method that creates geotechnical cross sections from limited CPT data, with
+                                related work on GeoSyn for synthetic ground data and Deep Reinforcement Learning
+                                for site investigation planning.</li>
+                            <li>Made site characterisation and numerical studies faster and more reproducible by
+                                building Python workflows around CPT data, statistical parameterisation and
+                                PLAXIS, and by further developing the DGEOLIB Plus software.</li>
+                            <li>Turns complex geotechnical and data analyses into clear engineering results for
+                                clients, researchers and multidisciplinary teams.</li>
                         </ul>
                     </div>
                 </div>
@@ -719,21 +780,25 @@
                     <div class="exp-meta">
                         <span class="exp-date">2014 &ndash; 2021</span>
                         <span class="exp-company">University of Costa Rica</span>
+                        <span class="exp-location">Geomechanics Laboratory, San Jos&eacute;, Costa Rica</span>
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Engineer, Researcher and Lecturer</h3>
                         <ul class="exp-bullets">
-                            <li>Planned and carried out site investigations (CPT, SPT, boreholes, geological
-                                mapping, MASW, electrical resistivity tomography) to build ground models for
-                                foundations, slopes and infrastructure.</li>
-                            <li>Performed and interpreted laboratory testing (direct shear, triaxial, oedometer,
-                                Atterberg limits) across volcanic, residual and alluvial soils.</li>
-                            <li>Led probabilistic landslide studies using the PISA method at municipal, community
-                                and site scales, and supported the National Emergency Commission following
-                                Hurricane Otto in 2016.</li>
-                            <li>Carried out limit equilibrium analyses for slopes, landfills and infrastructure
-                                sites, and lectured in soil mechanics and geology while supervising student
-                                research.</li>
+                            <li>Carried out probabilistic landslide assessment using PISA methods, combining
+                                field, laboratory and GIS data under dry, saturated and seismic conditions.</li>
+                            <li>Planned and interpreted site investigations, including CPT, SPT, boreholes,
+                                sampling, geological mapping, MASW, seismic refraction and electrical resistivity
+                                tomography, to build ground models for natural slopes, landfills, mines and
+                                quarries.</li>
+                            <li>Carried out limit equilibrium analyses and foundation design, including bearing
+                                capacity and settlement, based on interpreted geotechnical parameters.</li>
+                            <li>Performed and interpreted laboratory testing, including direct shear, triaxial
+                                and oedometer tests, to characterise soil strength and compressibility.</li>
+                            <li>Led field investigations and emergency assessments, including the 2016 response
+                                to Hurricane Otto.</li>
+                            <li>Taught soil mechanics and geology courses and supervised student research and
+                                junior staff in the Geomechanics Laboratory.</li>
                         </ul>
                     </div>
                 </div>
@@ -742,18 +807,40 @@
                     <div class="exp-meta">
                         <span class="exp-date">2018 &ndash; 2020</span>
                         <span class="exp-company">Inter-American Development Bank</span>
+                        <span class="exp-location">South America</span>
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Risk Consultant</h3>
                         <ul class="exp-bullets">
-                            <li>Supported remediation planning for the Kantutani landslide in La Paz, Bolivia,
-                                helping define terms of reference for follow up investigations with the
-                                municipality.</li>
-                            <li>Assessed spoil disposal suitability at the Quito Metro project in Ecuador
-                                following a fatal slope failure, and reviewed safer alternatives.</li>
-                            <li>Carried out landslide mapping and a corridor risk assessment along Route RP33 in
-                                Salta, Argentina, recommending monitoring and short term risk reduction measures.
-                            </li>
+                            <li><strong>Kantutani, La Paz</strong> &mdash; assessed the mechanics of a municipal
+                                solid waste mass at the Kantutani landslide, defining terms of reference for
+                                follow up investigation and coordinating with the municipality on geotechnical
+                                risk recommendations.</li>
+                            <li><strong>Quito Metro</strong> &mdash; reviewed spoil management following a fatal
+                                slope failure, defining terms of reference for further geotechnical investigation
+                                and assessing the affected disposal site and safer alternatives.</li>
+                            <li><strong>RP33 &mdash; landslide mapping</strong> &mdash; carried out field mapping
+                                and built a GIS corridor inventory of instability mechanisms along Route RP33 in
+                                Salta, Argentina, identifying priority risk areas.</li>
+                            <li><strong>RP33 &mdash; risk management</strong> &mdash; defined terms of reference
+                                for further studies and recommended slope monitoring, early warning and short
+                                term risk reduction measures.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-meta">
+                        <span class="exp-date">Aug &ndash; Nov 2022</span>
+                        <span class="exp-company">Royal HaskoningDHV</span>
+                        <span class="exp-location">The Netherlands</span>
+                    </div>
+                    <div>
+                        <h3 class="exp-title">Geotechnical Engineer Intern</h3>
+                        <ul class="exp-bullets">
+                            <li>Compared conventional and load distributed anchor systems for the Oosterweel Link
+                                project using analytical calculations and PLAXIS, helping assess how anchor length
+                                affects performance and the use of double grouted anchors.</li>
                         </ul>
                     </div>
                 </div>
@@ -762,13 +849,30 @@
                     <div class="exp-meta">
                         <span class="exp-date">2018 &ndash; 2019</span>
                         <span class="exp-company">Geostru Software</span>
+                        <span class="exp-location">Part time</span>
                     </div>
                     <div>
                         <h3 class="exp-title">Technical Support Specialist</h3>
                         <ul class="exp-bullets">
-                            <li>Produced technical training material and tested new features for geotechnical
-                                software users across Latin America.</li>
-                            <li>Gave structured feedback to the development team to support user adoption.</li>
+                            <li>Produced technical training material, tested new features and gave structured
+                                feedback to the development team, supporting software adoption for geotechnical
+                                users across Latin America.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-meta">
+                        <span class="exp-date">2013</span>
+                        <span class="exp-company">Diqu&iacute;s Hydroelectric Project, ICE</span>
+                        <span class="exp-location">Costa Rica</span>
+                    </div>
+                    <div>
+                        <h3 class="exp-title">Intern Geologist</h3>
+                        <ul class="exp-bullets">
+                            <li>Carried out geological and geomorphological mapping and in situ permeability
+                                testing, interpreting field data and developing a GIS database for the project.
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -785,31 +889,31 @@
 
                 <div class="edu-tile">
                     <span class="edu-year">2023</span>
-                    <h3 class="edu-degree">Master of Applied Earth Science</h3>
-                    <p class="edu-field">Geo-Engineering</p>
+                    <h3 class="edu-degree">MSc in Geo-Engineering / Geotechnical Engineering</h3>
+                    <p class="edu-thesis">Thesis: Deep Learning for Geotechnical Engineering: The Effectiveness of
+                        Generative Adversarial Networks in Subsoil Schematization.</p>
                     <p class="edu-school">Delft University of Technology, Netherlands</p>
                 </div>
 
                 <div class="edu-tile">
+                    <span class="edu-year">2020</span>
+                    <h3 class="edu-degree">Diploma in Underground and Overground Geomechanics</h3>
+                    <span class="edu-honor">// Cum Laude</span>
+                    <p class="edu-school">International Geotechnical Centre</p>
+                </div>
+
+                <div class="edu-tile">
                     <span class="edu-year">2017</span>
-                    <h3 class="edu-degree">Master of Science in Engineering Geology</h3>
-                    <p class="edu-field">Geotechnical Engineering</p>
-                    <span class="edu-honor">// Thesis with Honorable Mention</span>
+                    <h3 class="edu-degree">MSc in Engineering Geology</h3>
+                    <p class="edu-thesis">Thesis: Geomechanical characterisation and slope stability of a soil and
+                        municipal solid waste system at the San Ram&oacute;n landfill.</p>
+                    <span class="edu-honor">// Honorable Mention</span>
                     <p class="edu-school">University of Costa Rica</p>
                 </div>
 
                 <div class="edu-tile">
-                    <span class="edu-year">2020</span>
-                    <h3 class="edu-degree">Diploma in Underground &amp; Overground Geomechanics</h3>
-                    <p class="edu-field">Geomechanics</p>
-                    <span class="edu-honor">// Cum Laude</span>
-                    <p class="edu-school">International Geotechnical Center</p>
-                </div>
-
-                <div class="edu-tile">
                     <span class="edu-year">2015</span>
-                    <h3 class="edu-degree">Bachelor of Science in Geology</h3>
-                    <p class="edu-field">Geology</p>
+                    <h3 class="edu-degree">BSc in Geology</h3>
                     <p class="edu-school">University of Costa Rica</p>
                 </div>
 
@@ -817,11 +921,44 @@
         </div>
     </section>
 
+    <!-- DISTINCTIONS -->
+    <section id="distinctions" class="section">
+        <div class="wrap">
+            <p class="section-label">// distinctions</p>
+            <ul class="dist-list">
+                <li><span><strong>Schreuders Study Prize 2023 &mdash; Honorable Mention.</strong> For the MSc
+                        thesis on deep learning for geotechnical subsurface schematisation.</span></li>
+                <li><span><strong>Cum laude.</strong> Diploma in Underground and Overground Geomechanics,
+                        International Geotechnical Centre, 2020.</span></li>
+                <li><span><strong>Honorable Mention.</strong> MSc in Engineering Geology thesis, University of
+                        Costa Rica, 2017.</span></li>
+            </ul>
+        </div>
+    </section>
+
     <!-- PUBLICATIONS -->
     <section id="publications" class="section">
         <div class="wrap">
-            <p class="section-label">// publications</p>
+            <p class="section-label">// selected publications</p>
             <div class="pub-list">
+
+                <div class="pub-item">
+                    <p class="pub-title">Assessment of critical train speeds of railways on soft soils &ndash; a
+                        case study</p>
+                    <p class="pub-meta">Linnemann, Y. S., Campos Montero, F., Zuada Coelho, B., van Duinen, A.,
+                        &amp; Fern, J. (2026). E3S Web of Conferences, 730, 05001.
+                        <a href="https://doi.org/10.1051/e3sconf/202673005001" target="_blank"
+                            rel="noopener noreferrer">doi.org/10.1051/e3sconf/202673005001</a>
+                    </p>
+                </div>
+
+                <div class="pub-item">
+                    <p class="pub-title">Application of line loads versus block loads for railway embankment
+                        stability assessment</p>
+                    <p class="pub-meta">Post, M., Campos Montero, F., Schweckendiek, T., de Jong, E., &amp;
+                        Kleinjan, A. (2026). International Conference on Advances and Innovations in Soft Soil
+                        Engineering, 24&ndash;26 August 2026, Delft.</p>
+                </div>
 
                 <div class="pub-item">
                     <p class="pub-title">SchemaGAN: A conditional generative adversarial network for geotechnical
@@ -854,21 +991,14 @@
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">Assessment of critical train speeds of railways on soft soils, a case
-                        study</p>
-                    <p class="pub-meta">Linnemann, Y. S., Campos Montero, F., Zuada Coelho, B., van Duinen, A.,
-                        &amp; Fern, J. (2026). E3S Web of Conferences, 730, 05001.
-                        <a href="https://doi.org/10.1051/e3sconf/202673005001" target="_blank"
-                            rel="noopener noreferrer">doi.org/10.1051/e3sconf/202673005001</a>
+                    <p class="pub-title">Application of kinematic admissibility analysis and limit equilibrium to
+                        optimize the excavation geometry of a quarry in the canton of Le&oacute;n Cort&eacute;s,
+                        San Jos&eacute;, Costa Rica</p>
+                    <p class="pub-meta">Campos, F., Mora, R., Sequeira, J., &amp; Garnier, M. (2021). Revista
+                        Geol&oacute;gica de Am&eacute;rica Central, 1&ndash;25.
+                        <a href="https://doi.org/10.15517/rgac.v66i0.49786" target="_blank"
+                            rel="noopener noreferrer">doi.org/10.15517/rgac.v66i0.49786</a>
                     </p>
-                </div>
-
-                <div class="pub-item">
-                    <p class="pub-title">Application of line loads versus block loads for railway embankment
-                        stability assessment</p>
-                    <p class="pub-meta">Post, M., Campos Montero, F., Schweckendiek, T., de Jong, E., &amp;
-                        Kleinjan, A. (2026). International Conference on Advances and Innovations in Soft Soil
-                        Engineering.</p>
                 </div>
 
             </div>
@@ -882,34 +1012,92 @@
             <div class="skills-grid">
 
                 <div class="skill-tile">
-                    <p class="skill-tile-label">// geotechnical &amp; risk</p>
+                    <p class="skill-tile-label">// site investigation &amp; geodata</p>
                     <ul class="skill-list">
-                        <li>Site investigation &amp; laboratory testing</li>
-                        <li>Slope stability &amp; landslide risk assessment</li>
-                        <li>Bearing capacity &amp; settlement analysis</li>
-                        <li>Geotechnical characterisation &amp; back analysis</li>
-                        <li>Natural hazards &amp; early warning concepts</li>
+                        <li>CPT, SPT &amp; boreholes</li>
+                        <li>Soil &amp; rock sampling</li>
+                        <li>Geological &amp; geomorphological mapping</li>
+                        <li>MASW &amp; seismic refraction</li>
+                        <li>Electrical resistivity tomography</li>
+                        <li>LiDAR, photogrammetry &amp; GIS</li>
+                        <li>Ground modelling</li>
                     </ul>
                 </div>
 
                 <div class="skill-tile">
-                    <p class="skill-tile-label">// numerical, AI &amp; software</p>
+                    <p class="skill-tile-label">// laboratory &amp; soil mechanics</p>
+                    <ul class="skill-list">
+                        <li>Direct shear &amp; triaxial testing</li>
+                        <li>Oedometer &amp; consolidation testing</li>
+                        <li>Index testing &amp; soil classification</li>
+                        <li>Strength &amp; compressibility interpretation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-tile">
+                    <p class="skill-tile-label">// monitoring &amp; instrumentation</p>
+                    <ul class="skill-list">
+                        <li>Distributed fibre optic sensing &amp; DAS</li>
+                        <li>Accelerometers &amp; inclinometers</li>
+                        <li>Pore water pressure monitoring</li>
+                        <li>Railway vibration monitoring &amp; event detection</li>
+                        <li>Signal processing &amp; validation</li>
+                    </ul>
+                </div>
+
+                <div class="skill-tile">
+                    <p class="skill-tile-label">// AI &amp; data methods</p>
+                    <ul class="skill-list">
+                        <li>Python &amp; machine learning</li>
+                        <li>Generative AI &amp; reinforcement learning</li>
+                        <li>Synthetic geotechnical data</li>
+                        <li>Subsurface schematisation</li>
+                        <li>Uncertainty &amp; spatial variability</li>
+                        <li>Automated data processing &amp; statistics</li>
+                    </ul>
+                </div>
+
+                <div class="skill-tile">
+                    <p class="skill-tile-label">// numerical &amp; analytical geotechnics</p>
                     <ul class="skill-list">
                         <li>PLAXIS 2D/3D &amp; Python API automation</li>
-                        <li>Limit equilibrium methods &amp; back analysis</li>
-                        <li>Machine learning &amp; generative AI</li>
-                        <li>Reinforcement learning for site investigation</li>
-                        <li>Python, Jupyter, Git &amp; Docker</li>
-                        <li>ArcGIS &amp; QGIS spatial analysis</li>
+                        <li>Limit equilibrium methods</li>
+                        <li>Probabilistic &amp; stochastic analysis</li>
+                        <li>Monte Carlo simulation</li>
+                        <li>Sensitivity &amp; parametric studies</li>
+                        <li>Slope &amp; embankment stability</li>
+                        <li>Foundation design &amp; back analysis</li>
+                    </ul>
+                </div>
+
+                <div class="skill-tile">
+                    <p class="skill-tile-label">// software &amp; reproducibility</p>
+                    <ul class="skill-list">
+                        <li>Jupyter, Git &amp; version control</li>
+                        <li>Docker &amp; DGEOLIB Plus</li>
+                        <li>Rocscience tools &amp; AutoCAD</li>
+                        <li>LaTeX</li>
+                        <li>Automated reporting &amp; post processing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-tile">
+                    <p class="skill-tile-label">// natural hazards &amp; risk</p>
+                    <ul class="skill-list">
+                        <li>Landslide mapping</li>
+                        <li>Probabilistic slope instability &amp; PISA methods</li>
+                        <li>Geotechnical risk assessment</li>
+                        <li>Monitoring &amp; early warning concepts</li>
+                        <li>Static &amp; seismic slope stability</li>
                     </ul>
                 </div>
 
                 <div class="skill-tile">
                     <p class="skill-tile-label">// languages</p>
                     <ul class="skill-list">
-                        <li>Spanish &mdash; native</li>
-                        <li>English &mdash; fluent (TOEFL iBT 115)</li>
-                        <li>Dutch &mdash; intermediate (B1)</li>
+                        <li>Spanish &mdash; Native</li>
+                        <li>English &mdash; Fluent, TOEFL iBT 115</li>
+                        <li>Dutch &mdash; B1</li>
                     </ul>
                 </div>
 
@@ -924,12 +1112,15 @@
             <div class="contact-grid">
                 <div>
                     <h2 class="contact-heading">Get In Touch</h2>
-                    <p class="contact-note">Available for opportunities in geotechnical engineering, AI applications in
-                        geomechanics, and infrastructure resilience.</p>
+                    <p class="contact-note">Open to discussing research, engineering projects and collaboration in
+                        geotechnical engineering and infrastructure.</p>
                     <ul class="contact-details">
                         <li>+31 6 8218 3845</li>
                         <li><a href="mailto:fab.camo@gmail.com">fab.camo@gmail.com</a></li>
-                        <li>Netherlands &mdash; open to relocation</li>
+                        <li><a href="https://www.linkedin.com/in/fabcamo/" target="_blank"
+                                rel="noopener noreferrer">linkedin.com/in/fabcamo</a></li>
+                        <li><a href="https://scholar.google.com/citations?user=7Uh8VJ8AAAAJ&amp;hl=nl&amp;oi=ao"
+                                target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
                     </ul>
                 </div>
                 <div class="contact-cta">
@@ -945,7 +1136,7 @@
     </section>
 
     <footer class="footer">
-        <a href="/">~ fabcamo.com</a> &nbsp;&middot;&nbsp; &copy; 2026 Fabian A. Campos Montero
+        <a href="/">~ fabcamo.com</a> &nbsp;&middot;&nbsp; &copy; 2026 Fabi&aacute;n A. Campos Montero
     </footer>
 
     <script>
