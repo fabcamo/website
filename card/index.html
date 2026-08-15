@@ -31,7 +31,7 @@
             --dark-comment: #b7b7b7;
             --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --mono: 'JetBrains Mono', 'Fira Code', monospace;
-            --radius: 6px;
+            --radius: 8px;
             --gap: 6px;
         }
 
@@ -139,7 +139,7 @@
         .tile-link {
             text-decoration: none;
             cursor: pointer;
-            transition: border-color 0.12s ease, background 0.12s ease;
+            transition: border-color 0.16s ease, background 0.16s ease;
         }
 
         .tile-link:hover,
@@ -167,7 +167,7 @@
             color: var(--text-muted);
             margin-top: 0.22em;
             flex-shrink: 0;
-            transition: color 0.12s ease;
+            transition: color 0.16s ease;
         }
 
         .tile-link:hover .tile-diamond {
@@ -188,7 +188,7 @@
             color: var(--text-muted);
             opacity: 0;
             flex-shrink: 0;
-            transition: opacity 0.12s ease, transform 0.12s ease;
+            transition: opacity 0.16s ease, transform 0.16s ease;
         }
 
         .tile-link:hover .tile-arrow {
@@ -257,6 +257,15 @@
 
         .footer a:hover {
             color: var(--text-secondary);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.001ms !important;
+            }
         }
     </style>
 </head>

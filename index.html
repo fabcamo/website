@@ -36,8 +36,8 @@
             --dark-comment: #b7b7b7;
             --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --mono: 'JetBrains Mono', 'Fira Code', monospace;
-            --radius: 6px;
-            --gap: 6px;
+            --radius: 8px;
+            --container: 1040px;
         }
 
         *,
@@ -48,60 +48,46 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--sans);
             background: var(--bg);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            padding: 2rem 1rem 3rem;
+            color: var(--text-primary);
             -webkit-font-smoothing: antialiased;
+            padding: 2.5rem 1.25rem 3.5rem;
         }
 
-        /* Page wrapper */
         .page {
-            width: 100%;
-            max-width: 520px;
+            max-width: var(--container);
+            margin: 0 auto;
         }
 
-        /* Bento grid */
-        .bento {
+        /* ===== HERO ===== */
+        .hero-split {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--gap);
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-bottom: 3rem;
         }
 
-        .span-2 {
-            grid-column: span 2;
-        }
-
-        /* Base tile */
-        .tile {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        /* Profile tile - dark, terminal-flavoured */
-        .tile-profile {
+        .hero-main {
             background: var(--dark-bg);
-            border-color: var(--dark-border);
-            padding: 1.5rem;
-            gap: 0.75rem;
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius);
+            padding: 2rem 2.25rem;
         }
 
-        .profile-header {
+        .hero-header {
             display: flex;
             align-items: center;
             gap: 0.625rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* FCM badge looks like a shell token */
-        .profile-badge {
+        .hero-badge {
             font-family: var(--mono);
             font-size: 0.6875rem;
             font-weight: 500;
@@ -114,132 +100,188 @@
             flex-shrink: 0;
         }
 
-        .profile-path {
+        .hero-path {
             font-family: var(--mono);
             font-size: 0.6875rem;
             color: var(--dark-comment);
         }
 
-        .profile-name {
-            font-size: 1.1875rem;
+        .hero-name {
+            font-size: clamp(1.625rem, 3.4vw, 2.125rem);
             font-weight: 600;
             color: var(--dark-text);
-            letter-spacing: -0.015em;
-            line-height: 1.3;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
         }
 
-        /* tagline as a // comment */
-        .profile-tagline {
+        .hero-role {
+            font-size: 1.0625rem;
+            font-weight: 500;
+            color: var(--dark-text);
+            margin-bottom: 0.625rem;
+        }
+
+        .hero-tagline {
             font-family: var(--mono);
-            font-size: 0.6875rem;
-            line-height: 1.7;
+            font-size: 0.75rem;
             color: var(--dark-muted);
+            margin-bottom: 1.375rem;
         }
 
-        .profile-tagline .c {
+        .hero-tagline .c {
             color: var(--dark-comment);
         }
 
-        .profile-intro {
-            font-size: 0.8125rem;
-            line-height: 1.6;
+        .hero-desc {
+            font-size: 0.9375rem;
+            line-height: 1.7;
             color: #b0b0b0;
+            max-width: 32rem;
+            margin-bottom: 1.75rem;
         }
 
-        /* Active link tile */
-        .tile-link {
-            text-decoration: none;
-            cursor: pointer;
-            transition: border-color 0.12s ease, background 0.12s ease;
-        }
-
-        .tile-link:hover,
-        .tile-link:focus-visible {
-            border-color: var(--border-hover);
-            background: #f7f7f7;
-            outline: none;
-        }
-
-        .tile-link:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        /* top row: diamond, label, arrow */
-        .tile-top {
+        .hero-actions {
             display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 0.375rem;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
-        .tile-diamond {
-            font-size: 0.55rem;
-            color: var(--text-muted);
-            margin-top: 0.22em;
-            flex-shrink: 0;
-            transition: color 0.12s ease;
-        }
-
-        .tile-link:hover .tile-diamond {
-            color: var(--accent);
-        }
-
-        .tile-label {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            flex: 1;
-            line-height: 1.3;
-        }
-
-        /* arrow slides in on hover */
-        .tile-arrow {
+        .btn {
+            font-family: var(--sans);
             font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            border: 1px solid;
+            transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--dark-text);
+            color: var(--dark-bg);
+            border-color: var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            background: #d8d8d8;
+            border-color: #d8d8d8;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark-muted);
+            border-color: var(--dark-border);
+        }
+
+        .btn-secondary:hover {
+            color: var(--dark-text);
+            border-color: var(--dark-muted);
+        }
+
+        .hero-links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem 1.375rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .hero-links a {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--dark-muted);
+            text-decoration: none;
+            transition: color 0.16s ease;
+        }
+
+        .hero-links a:hover,
+        .hero-links a:focus-visible {
+            color: var(--dark-text);
+        }
+
+        /* Right panel - restrained profile/focus summary, no imagery */
+        .hero-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .panel-label {
+            font-family: var(--mono);
+            font-size: 0.625rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
             color: var(--text-muted);
-            opacity: 0;
-            flex-shrink: 0;
-            transition: opacity 0.12s ease, transform 0.12s ease;
+            margin-bottom: 0.75rem;
         }
 
-        .tile-link:hover .tile-arrow {
-            opacity: 1;
-            transform: translateX(2px);
+        .panel-role {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.35;
         }
 
-        /* description in monospace - looks like a path / address */
-        .tile-desc {
+        .panel-org {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .panel-loc {
             font-family: var(--mono);
             font-size: 0.6875rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .panel-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .panel-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .panel-list li {
+            font-size: 0.8125rem;
             color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
             line-height: 1.4;
         }
 
-        /* Focus areas - plain text blocks, no card/service styling */
-        .tile-area-label {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: var(--text-primary);
+        .panel-list li::before {
+            content: '\25C6';
+            font-size: 0.4rem;
+            color: var(--text-muted);
+            margin-top: 0.4em;
+            flex-shrink: 0;
         }
 
-        .tile-area-desc {
-            font-family: var(--mono);
-            font-size: 0.6875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
+        @media (min-width: 861px) {
+            .hero-split {
+                grid-template-columns: 1.75fr 1fr;
+            }
         }
 
-        a:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-
-        /* Section separator */
-        .section-sep {
-            grid-column: span 2;
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 0.25rem 0;
+        /* ===== SECTIONS ===== */
+        .section {
+            margin-bottom: 3rem;
         }
 
         .section-label {
@@ -248,13 +290,94 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             color: var(--text-muted);
-            grid-column: span 2;
-            padding: 0 0.125rem 0.125rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Focus areas - numbered, hairline-divided, no cards/shadows */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .focus-item {
+            background: var(--surface);
+            padding: 1.5rem;
+            transition: background 0.16s ease;
+        }
+
+        .focus-item:hover {
+            background: #f7f7f7;
+        }
+
+        .focus-num {
+            font-family: var(--mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+        }
+
+        .focus-item h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0.5rem 0 0.625rem;
+        }
+
+        .focus-item p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 701px) {
+            .focus-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Selected work - quiet left-rule items, distinct from focus areas */
+        .work-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        .work-item {
+            border-left: 2px solid var(--border);
+            padding: 0.125rem 0 0.125rem 1.125rem;
+            transition: border-color 0.16s ease;
+        }
+
+        .work-item:hover {
+            border-color: var(--accent);
+        }
+
+        .work-name {
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.375rem;
+        }
+
+        .work-desc {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 701px) {
+            .work-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         /* Footer */
         .footer {
-            margin-top: 0.875rem;
             text-align: center;
             font-family: var(--mono);
             font-size: 0.6875rem;
@@ -269,120 +392,137 @@
         .footer a:hover {
             color: var(--text-secondary);
         }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 700px) {
+            .hero-main {
+                padding: 1.5rem;
+            }
+
+            .hero-panel {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 
 <body>
     <main class="page">
-        <div class="bento">
 
-            <!-- Profile -->
-            <div class="tile tile-profile span-2">
-                <div class="profile-header">
-                    <span class="profile-badge">FCM</span>
-                    <span class="profile-path">~ fabcamo.com</span>
+        <!-- HERO -->
+        <section class="hero-split">
+            <div class="hero-main">
+                <div class="hero-header">
+                    <span class="hero-badge">FCM</span>
+                    <span class="hero-path">~ fabcamo.com</span>
                 </div>
-                <h1 class="profile-name">Fabi&aacute;n Campos Montero</h1>
-                <p class="profile-tagline">
-                    <span class="c">// </span>geotechnical engineer &amp; researcher<br>
+                <h1 class="hero-name">Fabi&aacute;n A. Campos Montero</h1>
+                <p class="hero-role">Geotechnical Engineer &amp; Researcher</p>
+                <p class="hero-tagline">
                     <span class="c">// </span>infrastructure &middot; soil mechanics &middot; AI
                 </p>
-                <p class="profile-intro">
+                <p class="hero-desc">
                     Fabi&aacute;n is a geotechnical engineer and researcher at Deltares working across site
                     investigation, soil mechanics, monitoring, numerical modelling, natural hazards and applied
                     research. His work combines conventional geotechnical engineering with AI and data methods to
                     support infrastructure and ground engineering decisions.
                 </p>
+                <div class="hero-actions">
+                    <a href="/cv" class="btn btn-primary">Digital CV</a>
+                    <a href="/assets/cv-fabcamo.pdf" class="btn btn-secondary" download>Download CV</a>
+                </div>
+                <ul class="hero-links">
+                    <li><a href="https://www.linkedin.com/in/fabcamo/" target="_blank"
+                            rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=7Uh8VJ8AAAAJ&hl=nl&oi=ao" target="_blank"
+                            rel="noopener noreferrer">Google Scholar</a></li>
+                    <li><a href="https://www.deltares.nl/en/expertise/our-people/fabian-campos-montero"
+                            target="_blank" rel="noopener noreferrer">Deltares</a></li>
+                    <li><a href="mailto:fab.camo@gmail.com">Contact</a></li>
+                </ul>
             </div>
 
-            <!-- Digital CV -->
-            <a href="/cv" class="tile tile-link">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Digital CV</span>
-                    <span class="tile-arrow">&#8594;</span>
+            <aside class="hero-panel">
+                <div>
+                    <p class="panel-label">// current</p>
+                    <p class="panel-role">Geotechnical Researcher &amp; Consultant</p>
+                    <p class="panel-org">Deltares</p>
+                    <p class="panel-loc">Delft, The Netherlands</p>
                 </div>
-                <span class="tile-desc">fabcamo.com/cv</span>
-            </a>
-
-            <!-- Download CV - PDF confirmed at repository root -->
-            <a href="/assets/cv-fabcamo.pdf" class="tile tile-link" download>
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Download CV</span>
-                    <span class="tile-arrow">&#8594;</span>
+                <hr class="panel-divider">
+                <div>
+                    <p class="panel-label">// focus</p>
+                    <ul class="panel-list">
+                        <li>Geotechnical engineering</li>
+                        <li>Geodata &amp; monitoring</li>
+                        <li>AI &amp; digital methods</li>
+                        <li>Natural hazards</li>
+                    </ul>
                 </div>
-                <span class="tile-desc">cv-fabcamo.pdf</span>
-            </a>
+            </aside>
+        </section>
 
-            <hr class="section-sep">
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/fabcamo/" class="tile tile-link span-2" target="_blank"
-                rel="noopener noreferrer">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">LinkedIn</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">linkedin.com/in/fabcamo</span>
-            </a>
-
-            <!-- Google Scholar -->
-            <a href="https://scholar.google.com/citations?user=7Uh8VJ8AAAAJ&hl=nl&oi=ao" class="tile tile-link span-2"
-                target="_blank" rel="noopener noreferrer">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Google Scholar</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">publications &amp; citations</span>
-            </a>
-
-            <!-- Deltares profile -->
-            <a href="https://www.deltares.nl/en/expertise/our-people/fabian-campos-montero"
-                class="tile tile-link span-2" target="_blank" rel="noopener noreferrer">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Deltares Profile</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">deltares.nl &mdash; our people</span>
-            </a>
-
-            <!-- Contact email -->
-            <a href="mailto:fab.camo@gmail.com" class="tile tile-link span-2">
-                <div class="tile-top">
-                    <span class="tile-diamond">&#9670;</span>
-                    <span class="tile-label">Contact</span>
-                    <span class="tile-arrow">&#8594;</span>
-                </div>
-                <span class="tile-desc">fab.camo@gmail.com</span>
-            </a>
-
-            <!-- Focus areas -->
-            <hr class="section-sep">
+        <!-- FOCUS AREAS -->
+        <section class="section">
             <p class="section-label">// focus areas</p>
-
-            <div class="tile tile-area span-2">
-                <p class="tile-area-label">Geotechnical Engineering</p>
-                <p class="tile-area-desc">Site investigation, soil mechanics, foundation engineering, slope and
-                    embankment stability, and numerical modelling, including natural hazards and landslide risk.</p>
+            <div class="focus-grid">
+                <article class="focus-item">
+                    <span class="focus-num">01</span>
+                    <h3>Geotechnical Engineering</h3>
+                    <p>Site investigation, soil mechanics, foundation engineering, slope and embankment stability,
+                        and numerical modelling, including natural hazards and landslide risk.</p>
+                </article>
+                <article class="focus-item">
+                    <span class="focus-num">02</span>
+                    <h3>Geodata &amp; Monitoring</h3>
+                    <p>CPT and ground data, field investigation, laboratory data, fibre optic sensing,
+                        instrumentation and infrastructure monitoring.</p>
+                </article>
+                <article class="focus-item">
+                    <span class="focus-num">03</span>
+                    <h3>AI &amp; Digital Methods</h3>
+                    <p>Machine learning, subsurface schematisation, Python workflows, geotechnical software and
+                        data-driven engineering.</p>
+                </article>
             </div>
+        </section>
 
-            <div class="tile tile-area span-2">
-                <p class="tile-area-label">Geodata &amp; Monitoring</p>
-                <p class="tile-area-desc">CPT and ground data, field investigation, laboratory data, fibre optic
-                    sensing, instrumentation and infrastructure monitoring.</p>
+        <!-- SELECTED WORK -->
+        <section class="section">
+            <p class="section-label">// selected work</p>
+            <div class="work-grid">
+                <article class="work-item">
+                    <p class="work-name">SchemaGAN</p>
+                    <p class="work-desc">AI-based geotechnical subsurface schematisation from limited CPT
+                        information.</p>
+                </article>
+                <article class="work-item">
+                    <p class="work-name">Railway Monitoring</p>
+                    <p class="work-desc">Dark fibre sensing, accelerometers and machine learning for railway
+                        vibration assessment.</p>
+                </article>
+                <article class="work-item">
+                    <p class="work-name">Geotechnical Risk</p>
+                    <p class="work-desc">Probabilistic landslide assessment, field mapping and risk-informed
+                        engineering decisions.</p>
+                </article>
             </div>
-
-            <div class="tile tile-area span-2">
-                <p class="tile-area-label">AI &amp; Digital Methods</p>
-                <p class="tile-area-desc">Machine learning, subsurface schematisation, Python workflows, geotechnical
-                    software and data-driven engineering.</p>
-            </div>
-
-        </div>
+        </section>
 
         <footer class="footer">
             <a href="/">~ fabcamo.com</a>

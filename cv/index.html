@@ -123,7 +123,7 @@
             font-weight: 500;
             color: var(--dark-muted);
             text-decoration: none;
-            transition: color 0.12s ease;
+            transition: color 0.16s ease;
         }
 
         .nav-link:hover {
@@ -228,7 +228,7 @@
             border-radius: var(--radius);
             text-decoration: none;
             border: 1px solid;
-            transition: background 0.12s, color 0.12s, border-color 0.12s;
+            transition: background 0.16s, color 0.16s, border-color 0.16s;
             cursor: pointer;
         }
 
@@ -284,7 +284,7 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 1.25rem;
-            transition: border-color 0.12s;
+            transition: border-color 0.16s;
         }
 
         .exp-item:hover {
@@ -359,7 +359,7 @@
         /* === EDUCATION === */
         .edu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 0.5rem;
         }
 
@@ -371,7 +371,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.3rem;
-            transition: border-color 0.12s;
+            transition: border-color 0.16s;
         }
 
         .edu-tile:hover {
@@ -413,82 +413,133 @@
         }
 
         /* === DISTINCTIONS === */
-        .dist-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
+        .dist-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
         }
 
-        .dist-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.625rem;
+        .dist-item {
+            padding: 1.25rem 0 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .dist-item:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .dist-year {
+            font-family: var(--mono);
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+        }
+
+        .dist-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0.375rem 0 0.25rem;
+            line-height: 1.35;
+        }
+
+        .dist-desc {
             font-size: 0.8125rem;
             color: var(--text-secondary);
             line-height: 1.55;
         }
 
-        .dist-list li::before {
-            content: '\25C6';
-            font-size: 0.4rem;
-            color: var(--text-muted);
-            margin-top: 0.45em;
-            flex-shrink: 0;
-        }
+        @media (min-width: 701px) {
+            .dist-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
 
-        .dist-list strong {
-            color: var(--text-primary);
-            font-weight: 600;
+            .dist-item {
+                padding: 0 1.5rem;
+                border-top: none;
+                border-left: 1px solid var(--border);
+            }
+
+            .dist-item:first-child {
+                padding-left: 0;
+                border-left: none;
+            }
         }
 
         /* === PUBLICATIONS === */
         .pub-list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
         }
 
         .pub-item {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1rem 1.25rem;
-            transition: border-color 0.12s;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.375rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid var(--border);
         }
 
-        .pub-item:hover {
-            border-color: var(--border-hover);
+        .pub-item:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .pub-year {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
         }
 
         .pub-title {
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             font-weight: 600;
             color: var(--text-primary);
             line-height: 1.4;
         }
 
-        .pub-meta {
-            font-size: 0.75rem;
+        .pub-authors {
+            font-size: 0.8125rem;
             color: var(--text-secondary);
             line-height: 1.5;
-            margin-top: 0.3rem;
         }
 
-        .pub-meta a {
+        .pub-authors strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .pub-link {
             font-family: var(--mono);
+            font-size: 0.75rem;
             color: var(--accent);
             text-decoration: none;
         }
 
-        .pub-meta a:hover {
+        .pub-link:hover {
             text-decoration: underline;
+        }
+
+        @media (min-width: 701px) {
+            .pub-item {
+                grid-template-columns: 4.5rem 1fr;
+                gap: 1.25rem;
+            }
+
+            .pub-year {
+                padding-top: 0.15rem;
+            }
         }
 
         /* === SKILLS === */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 0.5rem;
         }
 
@@ -529,6 +580,41 @@
             color: var(--text-muted);
             margin-top: 0.4em;
             flex-shrink: 0;
+        }
+
+        .lang-label {
+            font-family: var(--mono);
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            margin-bottom: 0.875rem;
+        }
+
+        .lang-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+        }
+
+        .lang-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lang-level {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
         }
 
         /* === CONTACT === */
@@ -639,6 +725,16 @@
             outline-offset: 2px;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 700px) {
             .nav-links {
@@ -681,8 +777,6 @@
         }
 
         @media (max-width: 900px) and (min-width: 701px) {
-
-            .edu-grid,
             .skills-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -812,17 +906,17 @@
                     <div>
                         <h3 class="exp-title">Geotechnical Risk Consultant</h3>
                         <ul class="exp-bullets">
-                            <li>Kantutani, La Paz &mdash; assessed the mechanics of a municipal
+                            <li><strong>Kantutani, La Paz</strong> &mdash; assessed the mechanics of a municipal
                                 solid waste mass at the Kantutani landslide, defining terms of reference for
                                 follow up investigation and coordinating with the municipality on geotechnical
                                 risk recommendations.</li>
-                            <li>Quito Metro &mdash; reviewed spoil management following a fatal
+                            <li><strong>Quito Metro</strong> &mdash; reviewed spoil management following a fatal
                                 slope failure, defining terms of reference for further geotechnical investigation
                                 and assessing the affected disposal site and safer alternatives.</li>
-                            <li>RP33 &mdash; landslide mapping &mdash; carried out field mapping
+                            <li><strong>RP33 &mdash; landslide mapping</strong> &mdash; carried out field mapping
                                 and built a GIS corridor inventory of instability mechanisms along Route RP33 in
                                 Salta, Argentina, identifying priority risk areas.</li>
-                            <li>RP33 &mdash; risk management &mdash; defined terms of reference
+                            <li><strong>RP33 &mdash; risk management</strong> &mdash; defined terms of reference
                                 for further studies and recommended slope monitoring, early warning and short
                                 term risk reduction measures.</li>
                         </ul>
@@ -925,14 +1019,25 @@
     <section id="distinctions" class="section">
         <div class="wrap">
             <p class="section-label">// distinctions</p>
-            <ul class="dist-list">
-                <li><span><strong>Schreuders Study Prize 2023 &mdash; Honorable Mention.</strong> For the MSc
-                        thesis on deep learning for geotechnical subsurface schematisation.</span></li>
-                <li><span><strong>Cum laude.</strong> Diploma in Underground and Overground Geomechanics,
-                        International Geotechnical Centre, 2020.</span></li>
-                <li><span><strong>Honorable Mention.</strong> MSc in Engineering Geology thesis, University of
-                        Costa Rica, 2017.</span></li>
-            </ul>
+            <div class="dist-grid">
+                <div class="dist-item">
+                    <span class="dist-year">2023</span>
+                    <p class="dist-title">Schreuders Study Prize</p>
+                    <p class="dist-desc">Honorable Mention &mdash; MSc thesis on deep learning for geotechnical
+                        subsurface schematisation.</p>
+                </div>
+                <div class="dist-item">
+                    <span class="dist-year">2020</span>
+                    <p class="dist-title">Cum Laude</p>
+                    <p class="dist-desc">Diploma in Underground and Overground Geomechanics, International
+                        Geotechnical Centre.</p>
+                </div>
+                <div class="dist-item">
+                    <span class="dist-year">2017</span>
+                    <p class="dist-title">Honorable Mention</p>
+                    <p class="dist-desc">MSc in Engineering Geology thesis, University of Costa Rica.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -943,62 +1048,81 @@
             <div class="pub-list">
 
                 <div class="pub-item">
-                    <p class="pub-title">Assessment of critical train speeds of railways on soft soils &ndash; a
-                        case study</p>
-                    <p class="pub-meta">Linnemann, Y. S., Campos Montero, F., Zuada Coelho, B., van Duinen, A.,
-                        &amp; Fern, J. (2026). E3S Web of Conferences, 730, 05001.
-                        <a href="https://doi.org/10.1051/e3sconf/202673005001" target="_blank"
+                    <span class="pub-year">2026</span>
+                    <div>
+                        <p class="pub-title">Assessment of critical train speeds of railways on soft soils
+                            &ndash; a case study</p>
+                        <p class="pub-authors">Linnemann, Y. S., <strong>Campos Montero, F.</strong>, Zuada
+                            Coelho, B., van Duinen, A., &amp; Fern, J.</p>
+                        <p class="pub-venue">E3S Web of Conferences, 730, 05001.</p>
+                        <a class="pub-link" href="https://doi.org/10.1051/e3sconf/202673005001" target="_blank"
                             rel="noopener noreferrer">doi.org/10.1051/e3sconf/202673005001</a>
-                    </p>
+                    </div>
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">Application of line loads versus block loads for railway embankment
-                        stability assessment</p>
-                    <p class="pub-meta">Post, M., Campos Montero, F., Schweckendiek, T., de Jong, E., &amp;
-                        Kleinjan, A. (2026). International Conference on Advances and Innovations in Soft Soil
-                        Engineering, 24&ndash;26 August 2026, Delft.</p>
+                    <span class="pub-year">2026</span>
+                    <div>
+                        <p class="pub-title">Application of line loads versus block loads for railway embankment
+                            stability assessment</p>
+                        <p class="pub-authors">Post, M., <strong>Campos Montero, F.</strong>, Schweckendiek, T.,
+                            de Jong, E., &amp; Kleinjan, A.</p>
+                        <p class="pub-venue">International Conference on Advances and Innovations in Soft Soil
+                            Engineering, 24&ndash;26 August 2026, Delft.</p>
+                    </div>
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">SchemaGAN: A conditional generative adversarial network for geotechnical
-                        subsurface schematisation</p>
-                    <p class="pub-meta">Campos Montero, F. A., Zuada Coelho, B., Smyrniou, E., Taormina, R., &amp;
-                        Vardon, P. J. (2025). Computers and Geotechnics, 183, 107177.
-                        <a href="https://doi.org/10.1016/j.compgeo.2025.107177" target="_blank"
+                    <span class="pub-year">2025</span>
+                    <div>
+                        <p class="pub-title">SchemaGAN: A conditional generative adversarial network for
+                            geotechnical subsurface schematisation</p>
+                        <p class="pub-authors"><strong>Campos Montero, F. A.</strong>, Zuada Coelho, B.,
+                            Smyrniou, E., Taormina, R., &amp; Vardon, P. J.</p>
+                        <p class="pub-venue">Computers and Geotechnics, 183, 107177.</p>
+                        <a class="pub-link" href="https://doi.org/10.1016/j.compgeo.2025.107177" target="_blank"
                             rel="noopener noreferrer">doi.org/10.1016/j.compgeo.2025.107177</a>
-                    </p>
+                    </div>
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">GEOSYN: Synthetic geotechnical cross-sections for machine learning
-                        applications</p>
-                    <p class="pub-meta">Campos Montero, F., Smyrniou, E., Zuada Coelho, B., Taormina, R., &amp;
-                        Vardon, P. J. (2025). 29th European Young Geotechnical Engineers Conference.
-                        <a href="https://doi.org/10.32762/eygec.2025.23" target="_blank"
+                    <span class="pub-year">2025</span>
+                    <div>
+                        <p class="pub-title">GEOSYN: Synthetic geotechnical cross-sections for machine learning
+                            applications</p>
+                        <p class="pub-authors"><strong>Campos Montero, F.</strong>, Smyrniou, E., Zuada Coelho,
+                            B., Taormina, R., &amp; Vardon, P. J.</p>
+                        <p class="pub-venue">29th European Young Geotechnical Engineers Conference.</p>
+                        <a class="pub-link" href="https://doi.org/10.32762/eygec.2025.23" target="_blank"
                             rel="noopener noreferrer">doi.org/10.32762/eygec.2025.23</a>
-                    </p>
+                    </div>
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">Optimizing geotechnical in-situ site investigations using Deep
-                        Reinforcement Learning</p>
-                    <p class="pub-meta">Zuada Coelho, B., Smyrniou, E., &amp; Campos Montero, F. A. (2025). Geodata
-                        and AI, 100038.
-                        <a href="https://doi.org/10.1016/j.geoai.2025.100038" target="_blank"
+                    <span class="pub-year">2025</span>
+                    <div>
+                        <p class="pub-title">Optimizing geotechnical in-situ site investigations using Deep
+                            Reinforcement Learning</p>
+                        <p class="pub-authors">Zuada Coelho, B., Smyrniou, E., &amp; <strong>Campos Montero, F.
+                                A.</strong></p>
+                        <p class="pub-venue">Geodata and AI, 100038.</p>
+                        <a class="pub-link" href="https://doi.org/10.1016/j.geoai.2025.100038" target="_blank"
                             rel="noopener noreferrer">doi.org/10.1016/j.geoai.2025.100038</a>
-                    </p>
+                    </div>
                 </div>
 
                 <div class="pub-item">
-                    <p class="pub-title">Application of kinematic admissibility analysis and limit equilibrium to
-                        optimize the excavation geometry of a quarry in the canton of Le&oacute;n Cort&eacute;s,
-                        San Jos&eacute;, Costa Rica</p>
-                    <p class="pub-meta">Campos, F., Mora, R., Sequeira, J., &amp; Garnier, M. (2021). Revista
-                        Geol&oacute;gica de Am&eacute;rica Central, 1&ndash;25.
-                        <a href="https://doi.org/10.15517/rgac.v66i0.49786" target="_blank"
+                    <span class="pub-year">2021</span>
+                    <div>
+                        <p class="pub-title">Application of kinematic admissibility analysis and limit
+                            equilibrium to optimize the excavation geometry of a quarry in the canton of
+                            Le&oacute;n Cort&eacute;s, San Jos&eacute;, Costa Rica</p>
+                        <p class="pub-authors"><strong>Campos, F.</strong>, Mora, R., Sequeira, J., &amp;
+                            Garnier, M.</p>
+                        <p class="pub-venue">Revista Geol&oacute;gica de Am&eacute;rica Central, 1&ndash;25.</p>
+                        <a class="pub-link" href="https://doi.org/10.15517/rgac.v66i0.49786" target="_blank"
                             rel="noopener noreferrer">doi.org/10.15517/rgac.v66i0.49786</a>
-                    </p>
+                    </div>
                 </div>
 
             </div>
@@ -1092,15 +1216,16 @@
                     </ul>
                 </div>
 
-                <div class="skill-tile">
-                    <p class="skill-tile-label">// languages</p>
-                    <ul class="skill-list">
-                        <li>Spanish &mdash; Native</li>
-                        <li>English &mdash; Fluent, TOEFL iBT 115</li>
-                        <li>Dutch &mdash; B1</li>
-                    </ul>
-                </div>
+            </div>
 
+            <p class="lang-label">// languages</p>
+            <div class="lang-row">
+                <span class="lang-item"><span class="lang-name">Spanish</span><span
+                        class="lang-level">Native</span></span>
+                <span class="lang-item"><span class="lang-name">English</span><span class="lang-level">Fluent,
+                        TOEFL iBT 115</span></span>
+                <span class="lang-item"><span class="lang-name">Dutch</span><span
+                        class="lang-level">B1</span></span>
             </div>
         </div>
     </section>
