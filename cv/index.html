@@ -23,7 +23,7 @@
             --text-primary: #171717;
             --text-secondary: #525252;
             --text-muted: #a3a3a3;
-            --accent: #fce515;
+            --accent: #1a56db;
             --dark-bg: #0f0f0f;
             --dark-surface: #1a1a1a;
             --dark-border: #2a2a2a;
@@ -315,10 +315,28 @@
             line-height: 1.3;
         }
 
-        .exp-desc {
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .exp-bullets li {
             font-size: 0.8125rem;
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.55;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .exp-bullets li::before {
+            content: '\25C6';
+            font-size: 0.4rem;
+            color: var(--text-muted);
+            margin-top: 0.45em;
+            flex-shrink: 0;
         }
 
         /* === EDUCATION === */
@@ -679,18 +697,21 @@
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Researcher and Consultant</h3>
-                        <p class="exp-desc">Researcher and consultant working across railway geotechnics, monitoring
-                            and applied AI. Core contributor to RESET, a multi-year research programme with ProRail
-                            and TU Delft, combining CPT, borehole, laboratory and centrifuge evidence with PLAXIS
-                            2D/3D, limit equilibrium analysis and Python automation to improve confidence in
-                            embankment stability assessment. Integrated 34 CPTs with geological data and stochastic
-                            methods to assess critical train speed along a 15&nbsp;km railway corridor, and built
-                            Python workflows to detect train passages and validate fibre optic monitoring against
-                            accelerometer data. Developed and published SchemaGAN, a generative AI method for
-                            geotechnical subsurface schematisation from CPT data (Computers and Geotechnics, 2025),
-                            with related work on GeoSyn and Deep Reinforcement Learning for site investigation
-                            planning. Builds reproducible Python and Jupyter workflows, automates PLAXIS studies
-                            through its API, and contributes to DGEOLIB Plus.</p>
+                        <ul class="exp-bullets">
+                            <li>Core contributor to RESET, a multi-year research programme with ProRail and TU
+                                Delft, combining CPT, borehole, laboratory and centrifuge evidence with PLAXIS
+                                2D/3D, limit equilibrium analysis and Python automation to improve embankment
+                                stability assessment.</li>
+                            <li>Integrated 34 CPTs with geological data and stochastic methods to assess critical
+                                train speed along a 15&nbsp;km railway corridor.</li>
+                            <li>Built Python workflows to detect train passages and validate fibre optic
+                                monitoring against accelerometer measurements.</li>
+                            <li>Developed and published SchemaGAN, a generative AI method for subsurface
+                                schematisation from CPT data (Computers and Geotechnics, 2025), with related work
+                                on GeoSyn and Deep Reinforcement Learning for site investigation planning.</li>
+                            <li>Builds reproducible Python and Jupyter workflows, automates PLAXIS through its
+                                API, and contributes to DGEOLIB Plus.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -701,16 +722,19 @@
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Engineer, Researcher and Lecturer</h3>
-                        <p class="exp-desc">Planned and carried out site investigations using CPT, SPT, boreholes,
-                            geological mapping, MASW and electrical resistivity tomography to build ground models
-                            for foundations, slopes and infrastructure. Performed and interpreted direct shear,
-                            triaxial, oedometer and Atterberg limit testing across volcanic, residual and alluvial
-                            soils, and carried out limit equilibrium analyses for natural slopes, landfills and
-                            infrastructure sites. Led probabilistic landslide studies based on the PISA method at
-                            municipal, community and site scales, and supported the National Emergency Commission
-                            with field assessment following Hurricane Otto in 2016. Lectured in soil mechanics and
-                            geology, and supervised student research and junior staff in the Geomechanics
-                            Laboratory.</p>
+                        <ul class="exp-bullets">
+                            <li>Planned and carried out site investigations (CPT, SPT, boreholes, geological
+                                mapping, MASW, electrical resistivity tomography) to build ground models for
+                                foundations, slopes and infrastructure.</li>
+                            <li>Performed and interpreted laboratory testing (direct shear, triaxial, oedometer,
+                                Atterberg limits) across volcanic, residual and alluvial soils.</li>
+                            <li>Led probabilistic landslide studies using the PISA method at municipal, community
+                                and site scales, and supported the National Emergency Commission following
+                                Hurricane Otto in 2016.</li>
+                            <li>Carried out limit equilibrium analyses for slopes, landfills and infrastructure
+                                sites, and lectured in soil mechanics and geology while supervising student
+                                research.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -721,14 +745,16 @@
                     </div>
                     <div>
                         <h3 class="exp-title">Geotechnical Risk Consultant</h3>
-                        <p class="exp-desc">Provided geotechnical risk advisory for infrastructure and community
-                            instability problems across South America. Supported remediation planning for the
-                            Kantutani landslide in La Paz, Bolivia, and helped define terms of reference for follow
-                            up investigations with the municipality. Assessed spoil disposal suitability at the
-                            Quito Metro project in Ecuador following a fatal slope failure, and reviewed safer
-                            alternatives. Carried out landslide mapping and a corridor risk assessment along Route
-                            RP33 in Salta, Argentina, recommending monitoring, early warning and short term risk
-                            reduction measures.</p>
+                        <ul class="exp-bullets">
+                            <li>Supported remediation planning for the Kantutani landslide in La Paz, Bolivia,
+                                helping define terms of reference for follow up investigations with the
+                                municipality.</li>
+                            <li>Assessed spoil disposal suitability at the Quito Metro project in Ecuador
+                                following a fatal slope failure, and reviewed safer alternatives.</li>
+                            <li>Carried out landslide mapping and a corridor risk assessment along Route RP33 in
+                                Salta, Argentina, recommending monitoring and short term risk reduction measures.
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -739,9 +765,11 @@
                     </div>
                     <div>
                         <h3 class="exp-title">Technical Support Specialist</h3>
-                        <p class="exp-desc">Supported software adoption for geotechnical users across Latin America
-                            by producing technical training material, testing new features and giving structured
-                            feedback to the development team.</p>
+                        <ul class="exp-bullets">
+                            <li>Produced technical training material and tested new features for geotechnical
+                                software users across Latin America.</li>
+                            <li>Gave structured feedback to the development team to support user adoption.</li>
+                        </ul>
                     </div>
                 </div>
 
